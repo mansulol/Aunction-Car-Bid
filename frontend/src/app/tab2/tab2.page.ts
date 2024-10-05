@@ -29,7 +29,7 @@ export class Tab2Page implements OnInit{
       this.combinedData.push({
         bid: this.bids[i],
         car: this.cars[i],
-        image: [this.images[i]],
+        image: this.images[i],
       });
     }
   }

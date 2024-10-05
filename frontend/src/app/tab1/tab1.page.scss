@@ -1,5 +1,12 @@
 @import '../../global.scss';
 
+
+.contenido_tab1{
+  width: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .contenido_tab1 > div{
   margin: 27px 24px 27px 24px;
 }
@@ -22,9 +29,10 @@
 
 .container-cars{
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   align-items: center;
   flex-wrap: wrap;
+  gap: 5px;
 }
 .text-show-all{
   font-size: 12px;

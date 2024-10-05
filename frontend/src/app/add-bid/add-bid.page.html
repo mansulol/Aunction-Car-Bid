@@ -16,27 +16,22 @@
             placeholder="Enter location"
           ></ion-input>
         </ion-item>
+        <ion-note color="danger" *ngIf="getFormControl('Location')?.hasError('required') && getFormControl('Location') ?.touched">
+          Location is required
+        </ion-note>
 
         <ion-item>
           <ion-label>Choose date of the bid</ion-label>
-          <ion-datetime-button formControlName="Date_bid" datetime="datetime"></ion-datetime-button>
-
-          <ion-modal [keepContentsMounted]="true">
-            <ng-template>
-              <ion-datetime
-                id="datetime"
-                presentation="date"
-                [formatOptions]="{
-                date: {
-                  weekday: 'short',
-                  month: 'long',
-                  day: '2-digit',
-                }
-              }"
-              ></ion-datetime>
-            </ng-template>
-          </ion-modal>
+          <ion-datetime
+            formControlName="Date_bid"
+            presentation="date"
+            displayFormat="MMM DD, YYYY"
+            placeholder="Select Date"
+          ></ion-datetime>
         </ion-item>
+        <ion-note color="danger" *ngIf="getFormControl('Date_bid')?.hasError('required') && getFormControl('Date_bid')?.touched">
+          Date of bid is required
+        </ion-note>
 
         <ion-item>
           <ion-input
@@ -51,19 +46,26 @@
             number
           ></ion-input>
         </ion-item>
+        <ion-note color="danger" *ngIf="getFormControl('PVP')?.hasError('required') && getFormControl('PVP')?.touched">
+          PVP is required
+        </ion-note>
 
         <ion-item>
           <ion-input
+            formControlName="Damage"
             label="Damage"
             labelPlacement="floating"
             fill="outline"
             placeholder="Enter damage"
           ></ion-input>
         </ion-item>
+        <ion-note color="danger" *ngIf="getFormControl('Damage')?.hasError('required') && getFormControl('Damage')?.touched">
+          Damage is required
+        </ion-note>
 
         <ion-item>
           <ion-input
-            type="number"
+            formControlName="Price"
             type="number"
             label="Price"
             labelPlacement="floating"
@@ -74,6 +76,9 @@
           ></ion-input>
         </ion-item>
       </ion-item-group>
+      <ion-note color="danger" *ngIf="getFormControl('Price')?.hasError('required') && getFormControl('Price')?.touched">
+        Price is required
+      </ion-note>
 
       <!-- Car related inputs -->
       <ion-item-group>
@@ -83,24 +88,33 @@
 
         <ion-item>
           <ion-input
+            formControlName="Make"
             label="Make"
             labelPlacement="floating"
             fill="outline"
             placeholder="Enter make"
           ></ion-input>
         </ion-item>
+        <ion-note color="danger" *ngIf="getFormControl('Make')?.hasError('required') && getFormControl('Make')?.touched">
+          Make is required
+        </ion-note>
 
         <ion-item>
           <ion-input
+            formControlName="Model"
             label="Model"
             labelPlacement="floating"
             fill="outline"
             placeholder="Enter model"
           ></ion-input>
         </ion-item>
+        <ion-note color="danger" *ngIf="getFormControl('Model')?.hasError('required') && getFormControl('Model')?.touched">
+          Model is required
+        </ion-note>
 
         <ion-item>
           <ion-select
+          formControlName="Vehicle_type"
             label="Vehicle type"
             placeholder="Choose your vehicle type"
           >
@@ -111,32 +125,48 @@
             >
           </ion-select>
         </ion-item>
+        <ion-note color="danger" *ngIf="getFormControl('Vehicle_type')?.hasError('required') && getFormControl('Vehicle_type')?.touched">
+          Vehicle type is required
+        </ion-note>
 
         <ion-item>
           <ion-label>Year</ion-label>
-          <ion-datetime presentation="year"></ion-datetime>
+          <ion-datetime formControlName="Year" presentation="year"></ion-datetime>
         </ion-item>
+        <ion-note color="danger" *ngIf="getFormControl('Year')?.hasError('required') && getFormControl('Year')?.touched">
+          Year is required
+        </ion-note>
+
 
         <ion-item>
           <ion-input
+            formControlName="Color"
             label="Color"
             labelPlacement="floating"
             fill="outline"
             placeholder="Enter color"
           ></ion-input>
         </ion-item>
+        <ion-note color="danger" *ngIf="getFormControl('Color')?.hasError('required') && getFormControl('Color')?.touched">
+          Color is required
+        </ion-note>
 
         <ion-item>
           <ion-input
+            formControlName="Engine"
             label="Engine"
             labelPlacement="floating"
             fill="outline"
             placeholder="Enter engine"
           ></ion-input>
         </ion-item>
+        <ion-note color="danger" *ngIf="getFormControl('Engine')?.hasError('required') && getFormControl('Engine')?.touched">
+          Engine is required
+        </ion-note>
 
         <ion-item>
           <ion-select
+          formControlName="Transmission"
             label="transmission"
             placeholder="Choose your transmission"
           >
@@ -147,26 +177,35 @@
             >
           </ion-select>
         </ion-item>
+        <ion-note color="danger" *ngIf="getFormControl('Transmission')?.hasError('required') && getFormControl('Transmission')?.touched">
+          Transmission is required
+        </ion-note>
 
         <ion-item>
-          <ion-select label="Fuel" placeholder="Choose fuel type">
+          <ion-select formControlName="Fuel" label="Fuel" placeholder="Choose fuel type">
             <ion-select-option *ngFor="let fuel of fuels" value="{{fuel}}"
               >{{fuel}}</ion-select-option
             >
           </ion-select>
         </ion-item>
+        <ion-note color="danger" *ngIf="getFormControl('Fuel')?.hasError('required') && getFormControl('Fuel')?.touched">
+          Fuel type is required
+        </ion-note>
 
         <ion-item>
-          <ion-select label="Drive" placeholder="Choose drive type">
+          <ion-select formControlName="Drive" label="Drive" placeholder="Choose drive type">
             <ion-select-option *ngFor="let drive of drives" value="{{drive}}"
               >{{drive}}</ion-select-option
             >
           </ion-select>
         </ion-item>
+        <ion-note color="danger" *ngIf="getFormControl('Drive')?.hasError('required') && getFormControl('Drive')?.touched">
+          Drive type is required
+        </ion-note>
 
         <ion-item>
           <ion-label>Kilometres</ion-label>
-          <ion-range
+          <ion-range formControlName="Kilometres"
             aria-label="Range with ticks"
             [ticks]="true"
             [snaps]="true"
@@ -175,8 +214,23 @@
           ></ion-range>
         </ion-item>
       </ion-item-group>
+      <ion-note color="danger" *ngIf="getFormControl('Kilometres')?.hasError('required') && getFormControl('Kilometres')?.touched">
+        Kilometres is required
+      </ion-note>
 
-      <ion-button> Create new Bid </ion-button>
+      <ion-item>
+        <ion-label>Upload Image</ion-label>
+        <input
+        formControlName="Image"
+          type="file"
+          accept="image/*"
+        />
+      </ion-item>
+      <ion-note color="danger" *ngIf="getFormControl('Image')?.hasError('required') && getFormControl('Image')?.touched">
+        Image is required
+      </ion-note>
+
+      <ion-button expand="full" type="submit" [disabled]="!bidForm.valid" > Create new Bid </ion-button>
     </form>
   </ion-list>
 </ion-content>

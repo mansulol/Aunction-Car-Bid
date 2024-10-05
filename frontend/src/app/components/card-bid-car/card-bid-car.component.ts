@@ -10,23 +10,22 @@ import { IonCard, IonCardContent, IonCardTitle, IonButton, IonItem } from '@ioni
 })
 export class CardBidCarComponent implements OnInit {
 
-  @Input() title: string = ""
-  @Input() Kilometres: string = ""
-  @Input() Damage: string = ""
-  @Input() Location: string = ""
-  @Input() Date_Bid: string = ""
-  @Input() Status: string = ""
-  @Input() Price: string = ""
-  @Input() Images: any = []
+  @Input() DataInput: any = []
+  Data: any = []
+  imgInput: any = []
 
   constructor() { }
 
   ngOnInit(){
+    this.Data = this.DataInput
+    this.imgInput = this.Data.Images
+
     this.showImages()
   }
 
   showImages(){
-    console.log(this.Images)
+
+    console.log(this.Data)
 
   }
 

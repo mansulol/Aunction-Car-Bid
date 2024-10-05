@@ -1,29 +1,38 @@
 <ion-card class="container-card-bid-car">
   <div class="img-container-card-bid-car">
-    <img src={{Images}} alt="Img 0">
+    <img src="/assets/imgs/undefined_car.jpg" alt="Img 0">
   </div>
   <ion-card-content class="content-card-bid-car">
     <h4 class="title-card-bid">
-      {{title}}
+      {{Data.car.Make+' '+Data.car.Model+' '+Data.car.Engine+' '+Data.car.Year+' '+Data.car.Color}}
     </h4>
     <h5>
-      Kilometres: {{Kilometres}}
+      <span class="subtitle-card-bid">
+        Kilometres:
+      </span>
+      {{Data.car.kilometres}}
     </h5>
     <h5>
-      Damage: {{Damage}}
+      <span class="subtitle-card-bid">
+        Damage:
+      </span>
+      {{Data.car.Damage}}
     </h5>
     <h5>
-      Location: {{Location}}
+      <span class="subtitle-card-bid">
+        Location:
+      </span>
+      {{Data.bid.Location}}
     </h5>
     <h5>
-      Bid date: {{Date_Bid}}
+      <span class="subtitle-card-bid">
+        Bid date:
+      </span>
+       {{Data.bid.Date_bid}}
     </h5>
-    <h5>
-      Status: {{Status}}
-    </h5>
-    <div class="bid-info-container">
+    <div class="bid-price-container">
       <h4>
-        Precio: <span>{{Price}}</span>
+        Precio: <span>{{Data.bid.Price+'$'}}</span>
       </h4>
       <ion-button class="btn-card-bid-car">
         Pujar

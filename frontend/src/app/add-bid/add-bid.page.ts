@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-bid.page.scss'],
 })
 export class AddBidPage implements OnInit {
+
   vehicle_types: any = ['Sedan', 'HatchBack', 'Coupe'];
   transmitions: any = ['Manual', 'Automatic', 'CVT'];
   fuels: any = ['Gasoline', 'Diesel', 'Electric'];
@@ -40,7 +41,8 @@ export class AddBidPage implements OnInit {
       Transmission: ['', Validators.compose([Validators.required])],
       Fuel: ['', Validators.compose([Validators.required])],
       Drive: ['', Validators.compose([Validators.required])],
-      Kilometres: ['', Validators.compose([Validators.required])]
+      Kilometres: ['', Validators.compose([Validators.required])],
+      Image: ['', Validators.compose([Validators.required])]
     })
   }
 
@@ -48,34 +50,22 @@ export class AddBidPage implements OnInit {
     ('');
   }
 
-  createBid(){
+  async createBid(){
     if( !this.bidForm.valid ){
       console.log("Form invalid")
       return
     }else{
       console.log(this.bidForm.value)
 
-      // const location = this.bidForm.value.Location;
-      // const dateBid = this.bidForm.value.Date_bid;
-      // const pvp = this.bidForm.value.PVP;
-      // const damage = this.bidForm.value.Damage;
-      // const price = this.bidForm.value.Price;
-      // const make = this.bidForm.value.Make;
-      // const model = this.bidForm.value.Model;
-      // const vehicleType = this.bidForm.value.Vehicle_type;
-      // const year = this.bidForm.value.Year;
-      // const color = this.bidForm.value.Color;
-      // const engine = this.bidForm.value.Engine;
-      // const transmission = this.bidForm.value.Transmission;
-      // const fuel = this.bidForm.value.Fuel;
-      // const drive = this.bidForm.value.Drive;
-      // const kilometres = this.bidForm.value.Kilometres;
+      const bidCreated = await this.putService.create(this.bidForm.value)
 
-
-      this.putService.create(this.bidForm.value).subscribe((res) => {
+      if( bidCreated ){
         console.log("New bid created")
-        this.route.navigateByUrl("/my-bids")
-      })
+        this.route.navigateByUrl("/tab-mybids")
+      }else{
+        console.log("Failed to create a new bid")
+      }
+
     }
   }
 

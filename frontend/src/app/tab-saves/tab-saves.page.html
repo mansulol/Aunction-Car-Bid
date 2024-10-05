@@ -2,9 +2,12 @@
 <ion-content [fullscreen]="true">
   <div class="container-bids-saves">
 
-    <app-card-bid-car></app-card-bid-car>
-    <app-card-bid-car></app-card-bid-car>
-    <app-card-bid-car></app-card-bid-car>
+    <div *ngFor="let data of combinedData">
+      <app-card-bid-car
+        *ngIf="data.bid.Saved === true"
+        [DataInput]="data"
+      ></app-card-bid-car>
+    </div>
 
   </div>
 </ion-content>
