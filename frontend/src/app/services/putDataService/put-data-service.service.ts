@@ -55,7 +55,7 @@ export class PutDataServiceService {
     bodyCars.append('Make', data.Make);
     bodyCars.append('Model', data.Model);
     bodyCars.append('Year', data.Year.substring(0, 4).toString());
-    bodyCars.append('kilometres', data.Kilometres.toString()+'00000');
+    bodyCars.append('kilometres', data.Kilometres.toString()+'00,000 Km');
     bodyCars.append('PVP', data.PVP.toString());
     bodyCars.append('Damage', data.Damage);
     bodyCars.append('Color', data.Color);
@@ -86,7 +86,7 @@ export class PutDataServiceService {
     bodyBids.append('Name', data.Make+' '+data.Model+' '+data.Engine+' '+data.Year+' '+data.Color);
     bodyBids.append('Location', data.Location);
     bodyBids.append('Price', data.Price.toString());
-    bodyBids.append('Date_bid', data.Date_bid);
+    bodyBids.append('Date_bid', data.Date_bid.substring(0, data.Date_bid.indexOf('T')));
     bodyBids.append('Saved', "0");
     bodyBids.append('Uploaded', "1");
 
