@@ -1,0 +1,19 @@
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item (click)="goToSavedBids()" class="container-me-item">
+      <div class="text-me-container">
+        <img class="img-icon-me" src="/assets/bookmark.svg" alt="Img bookmark">
+        <p class="text-item-me">Saved bids</p>
+      </div>
+      <img class="img-foward-arrow-me" src="/assets/foward-arrow.svg" alt="">
+    </ion-item >
+
+    <ion-item (click)="goToMyBids()" class="container-me-item">
+      <div class="text-me-container">
+        <img class="img-icon-me" src="/assets/clock.svg" alt="Img clock">
+        <p class="text-item-me">My bids</p>
+      </div>
+      <img class="img-foward-arrow-me" src="/assets/foward-arrow.svg" alt="">
+    </ion-item>
+  </ion-list>
+</ion-content>

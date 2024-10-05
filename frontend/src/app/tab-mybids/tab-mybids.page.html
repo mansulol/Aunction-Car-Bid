@@ -1,0 +1,18 @@
+<app-header-bids-tab3 [title]='"My Bids"'></app-header-bids-tab3>
+
+<ion-content [fullscreen]="true">
+  <div class="container-bids-mybids">
+
+    <app-card-bid-car></app-card-bid-car>
+    <app-card-bid-car></app-card-bid-car>
+    <app-card-bid-car></app-card-bid-car>
+  </div>
+
+</ion-content>
+
+<ion-fab slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab-button (click)="toAddPage()">
+    <img class="img-plus-mybids" src="/assets/plus.svg" alt="Img plus">
+  </ion-fab-button>
+</ion-fab>
+

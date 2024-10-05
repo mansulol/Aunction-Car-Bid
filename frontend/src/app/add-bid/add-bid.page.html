@@ -1,0 +1,182 @@
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <form [formGroup]="bidForm" (ngSubmit)="createBid()">
+      <!-- Bid related inputs -->
+      <ion-item-group>
+        <ion-item-divider>
+          <ion-label>Bid Info</ion-label>
+        </ion-item-divider>
+
+        <ion-item>
+          <ion-input
+            label="Location"
+            formControlName="Location"
+            labelPlacement="floating"
+            fill="outline"
+            placeholder="Enter location"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Choose date of the bid</ion-label>
+          <ion-datetime-button formControlName="Date_bid" datetime="datetime"></ion-datetime-button>
+
+          <ion-modal [keepContentsMounted]="true">
+            <ng-template>
+              <ion-datetime
+                id="datetime"
+                presentation="date"
+                [formatOptions]="{
+                date: {
+                  weekday: 'short',
+                  month: 'long',
+                  day: '2-digit',
+                }
+              }"
+              ></ion-datetime>
+            </ng-template>
+          </ion-modal>
+        </ion-item>
+
+        <ion-item>
+          <ion-input
+            type="number"
+            label="PVP"
+            formControlName="PVP"
+            labelPlacement="floating"
+            fill="outline"
+            placeholder="Enter PVP"
+            errorText="Invalid Number"
+            ngModel
+            number
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input
+            label="Damage"
+            labelPlacement="floating"
+            fill="outline"
+            placeholder="Enter damage"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input
+            type="number"
+            type="number"
+            label="Price"
+            labelPlacement="floating"
+            fill="outline"
+            placeholder="Enter price"
+            ngModel
+            number
+          ></ion-input>
+        </ion-item>
+      </ion-item-group>
+
+      <!-- Car related inputs -->
+      <ion-item-group>
+        <ion-item-divider>
+          <ion-label>Car Info</ion-label>
+        </ion-item-divider>
+
+        <ion-item>
+          <ion-input
+            label="Make"
+            labelPlacement="floating"
+            fill="outline"
+            placeholder="Enter make"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input
+            label="Model"
+            labelPlacement="floating"
+            fill="outline"
+            placeholder="Enter model"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-select
+            label="Vehicle type"
+            placeholder="Choose your vehicle type"
+          >
+            <ion-select-option
+              *ngFor="let vehicle of vehicle_types"
+              value="{{vehicle}}"
+              >{{vehicle}}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Year</ion-label>
+          <ion-datetime presentation="year"></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-input
+            label="Color"
+            labelPlacement="floating"
+            fill="outline"
+            placeholder="Enter color"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input
+            label="Engine"
+            labelPlacement="floating"
+            fill="outline"
+            placeholder="Enter engine"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-select
+            label="transmission"
+            placeholder="Choose your transmission"
+          >
+            <ion-select-option
+              *ngFor="let transmission of transmitions"
+              value="{{transmission}}"
+              >{{transmission}}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-select label="Fuel" placeholder="Choose fuel type">
+            <ion-select-option *ngFor="let fuel of fuels" value="{{fuel}}"
+              >{{fuel}}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-select label="Drive" placeholder="Choose drive type">
+            <ion-select-option *ngFor="let drive of drives" value="{{drive}}"
+              >{{drive}}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Kilometres</ion-label>
+          <ion-range
+            aria-label="Range with ticks"
+            [ticks]="true"
+            [snaps]="true"
+            [min]="0"
+            [max]="10"
+          ></ion-range>
+        </ion-item>
+      </ion-item-group>
+
+      <ion-button> Create new Bid </ion-button>
+    </form>
+  </ion-list>
+</ion-content>

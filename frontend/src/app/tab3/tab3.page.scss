@@ -1,0 +1,27 @@
+@import '../../global.scss';
+
+.container-me-item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+  gap: 10px;
+  background-color: $light-gray;
+  cursor: pointer;
+
+  .text-me-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .img-icon-me{
+      margin-right: 10px;
+    }
+    .text-item-me{
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+  .img-foward-arrow-me{
+    margin-left: auto;
+  }
+}

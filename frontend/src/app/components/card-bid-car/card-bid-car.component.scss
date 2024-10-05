@@ -1,0 +1,62 @@
+@import '../../../global.scss';
+
+.container-card-bid-car{
+  max-width: 390px;
+  display: flex;
+  margin: 0 0 2px 0;
+  padding: 0;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+
+  .img-container-card-bid-car{
+    width: 350px;
+    height: 236px;
+    margin-top: 24px;
+    border-radius: 15px;
+    background-color: gray;
+  }
+  .content-card-bid-car{
+    width: 350px;
+    margin-top: 18px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+
+    .title-card-bid{
+      color: $primary-color;
+    }
+
+  }
+  .bid-info-container{
+    width: 350px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h4 {
+      color: $dark-gray;
+      span{
+        font-weight: 600;
+        color: $primary-color;
+      }
+    }
+    .btn-card-bid-car{
+      width: 165px;
+      height: 34px;
+      background-color: $primary-color;
+      border-radius: 50%;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+}
+.img-container-card-bid-car img{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}

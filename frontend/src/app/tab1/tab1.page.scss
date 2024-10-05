@@ -1,0 +1,35 @@
+@import '../../global.scss';
+
+.contenido_tab1 > div{
+  margin: 27px 24px 27px 24px;
+}
+.contenedor_subastas_cerca{
+  .carusel_subastas{
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    align-items: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+}
+
+.titulos_ta1{
+  margin: 26px 0 27px 0;
+  color: $secondary-color;
+  font-weight: 400;
+}
+
+.container-cars{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.text-show-all{
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $secondary-color;
+}

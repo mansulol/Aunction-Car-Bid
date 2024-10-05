@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+
+<ion-content class="contenido_tab1" [fullscreen]="true">
+  <div class="contenedor_subastas_cerca">
+    <h1 class="titulos_ta1">Nearby Aunctions</h1>
+    <div class="carusel_subastas">
+      <app-card-carrusel></app-card-carrusel>
+      <app-card-carrusel></app-card-carrusel>
+    </div>
+  </div>
+
+  <div class="contenedor_subastas_cerca">
+    <h1 class="titulos_ta1">Nearby Aunctions by Vehicle Type</h1>
+    <div class="container-cars types">
+      <app-simple-card
+        [titleCard]="'Sedan'"
+        [count]="'13414'"
+        [img]="'/assets/imgs/vehicle_types/sedan.webp'"
+      ></app-simple-card>
+      <app-simple-card
+        [titleCard]="'Pickup'"
+        [count]="'13414'"
+        [img]="'/assets/imgs/vehicle_types/pickup.webp'"
+      ></app-simple-card>
+    </div>
+    <p class="text-show-all">
+      Ver todos &nbsp;
+      <img src="/assets/expand-arrow.svg" alt="">
+    </p>
+  </div>
+
+  <div class="contenedor_subastas_cerca">
+    <h1 class="titulos_ta1">Subastas de Coches por Marca</h1>
+    <div class="container-cars makes">
+      <app-simple-card
+        *ngFor="let s of makes_cards"
+        [titleCard]="'Hola'"
+        [count]="'13414'"
+        [img]="'/assets/clock.svg'"
+      ></app-simple-card>
+    </div>
+    <p class="text-show-all">
+      Ver todos &nbsp;
+      <img src="/assets/expand-arrow.svg" alt="">
+    </p>
+  </div>
+</ion-content>

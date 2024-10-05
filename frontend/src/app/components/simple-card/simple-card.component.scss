@@ -1,0 +1,35 @@
+.container-simple-card{
+  width: 160px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 30px 0;
+  padding: 0;
+
+  .img-simple-card{
+    width: 112px;
+    height: 78px;
+    // background-color: gray;
+  }
+  .info-simple-card-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    p{
+      text-align: center;
+    }
+
+    .title-simple-card{
+      font-size: 12px;
+      color: var(--primary_color);
+    }
+    .subtitle-simple-card{
+      font-size: 12px;
+      color: var(--secondary_color);
+    }
+  }
+}
