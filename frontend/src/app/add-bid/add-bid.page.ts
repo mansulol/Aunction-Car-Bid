@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PutDataServiceService } from '../services/putDataService/put-data-service.service';
 import { Router } from '@angular/router';
+import { ConstrainsServiceService } from '../services/ConstrainsService/constrains-service.service';
 
 @Component({
   selector: 'app-add-bid',
@@ -10,21 +11,18 @@ import { Router } from '@angular/router';
 })
 export class AddBidPage implements OnInit {
 
-  vehicle_types: any = ['Sedan', 'HatchBack', 'Coupe'];
-  transmitions: any = ['Manual', 'Automatic', 'CVT'];
-  fuels: any = ['Gasoline', 'Diesel', 'Electric'];
-  drives: any = [
-    'All Wheel drive (AWD)',
-    'Front Wheel Drive (FWD)',
-    'Rear wheel Drive (RWD)',
-  ];
+  vehicle_types: any = [];
+  transmissions: any = [];
+  fuels: any = [];
+  drives: any = [];
 
   bidForm: FormGroup
 
   constructor(
     private putService: PutDataServiceService,
     private formBuilder: FormBuilder,
-    private route: Router
+    private route: Router,
+    private constrains: ConstrainsServiceService
   ) {
     this.bidForm = formBuilder.group({
       Location: ['', Validators.compose([Validators.required])],
@@ -47,7 +45,11 @@ export class AddBidPage implements OnInit {
   }
 
   ngOnInit() {
-    ('');
+    this.vehicle_types = this.constrains.types_cars
+    this.transmissions = this.constrains.transmissions
+    this.fuels = this.constrains.fuels
+    this.drives = this.constrains.drives
+
   }
 
   async createBid(){

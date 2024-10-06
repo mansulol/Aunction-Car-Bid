@@ -121,7 +121,8 @@
             <ion-select-option
               *ngFor="let vehicle of vehicle_types"
               value="{{vehicle}}"
-              >{{vehicle}}</ion-select-option
+              >
+              {{vehicle.titleCard}}</ion-select-option
             >
           </ion-select>
         </ion-item>
@@ -171,7 +172,7 @@
             placeholder="Choose your transmission"
           >
             <ion-select-option
-              *ngFor="let transmission of transmitions"
+              *ngFor="let transmission of transmissions"
               value="{{transmission}}"
               >{{transmission}}</ion-select-option
             >
@@ -204,8 +205,8 @@
         </ion-note>
 
         <ion-item>
-          <ion-label>Kilometres</ion-label>
-          <ion-range formControlName="Kilometres"
+          <ion-label>Kilometres x100,000</ion-label>
+          <ion-range id="kilometres-range" formControlName="Kilometres"
             aria-label="Range with ticks"
             [ticks]="true"
             [snaps]="true"

@@ -12,7 +12,7 @@
   <div class="contenedor_subastas_cerca">
     <h1 class="titulos_ta1">Nearby Aunctions by Vehicle Type</h1>
     <div class="container-cars types">
-      <app-simple-card *ngFor="let v of types_cars"
+      <app-simple-card *ngFor="let v of types_cards"
         [titleCard]="v.titleCard"
         [count]="v.count"
         [img]="v.img"
@@ -30,7 +30,7 @@
       <app-simple-card
         *ngFor="let s of makes_cards"
         [titleCard]="s.titleCard"
-        [count]="'s.count'"
+        [count]="s.count"
         [img]="s.img"
       ></app-simple-card>
     </div>
