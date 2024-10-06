@@ -10,13 +10,10 @@ module.exports = (app) => {
     router.get("/", bids_controller.findAll)
     
     //Create a new bid
-    router.get("/location", bids_controller.findAllLocation)
-    
-    //Create a new bid
     router.put("/", bids_controller.update)
     
     //Create a new bid
-    router.delete("/", bids_controller.delete)
+    router.delete("/:IdBid", bids_controller.delete)
     
     app.use('/api/car_aunction/bids', router)
 

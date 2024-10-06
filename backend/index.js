@@ -16,9 +16,13 @@ app.use(cors(corsOptions))
 // Load db
 const db = require("./models")
 
-db.sequelize.sync({ force: true }).then( () => {
-    console.log("Forced Drop and Re-Sync DB")
-} )
+db.sequelize.sync().then( () => {
+    console.log("Re-Sync DB")
+})
+
+// db.sequelize.sync({ force: true }).then( () => {
+//     console.log("Forced Drop and Re-Sync DB")
+// } )
 
 // Fake data to play with the db
 function insertDatas(){

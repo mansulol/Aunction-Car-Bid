@@ -4,8 +4,7 @@ module.exports = (sequelize) => {
     const cars = sequelize.define("cars", {
         Id_car:{
             type: DataTypes.STRING,
-            primaryKey: true,
-            unique: true
+            primaryKey: true
         },
         Vehicle_type:{
             type: DataTypes.STRING
@@ -34,7 +33,7 @@ module.exports = (sequelize) => {
         Engine:{
             type: DataTypes.STRING
         },
-        Transmition:{
+        Transmission:{
             type: DataTypes.STRING
         },
         Fuel:{
@@ -43,7 +42,7 @@ module.exports = (sequelize) => {
         Drive:{
             type: DataTypes.STRING
         },
-        Id_car_imgs: {
+        Id_car_img: {
             type: DataTypes.STRING
         }
     },

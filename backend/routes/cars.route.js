@@ -20,7 +20,7 @@ module.exports = app => {
     router.delete("/", cars_controller.delete)
 
     // Deletes a car and its images
-    router.delete("/image", cars_controller.deleteWithImage)
+    router.delete("/image/:idCar/:idImg", cars_controller.deleteWithImage)
 
     app.use('/api/car_aunction/cars', router)
 

@@ -7,8 +7,7 @@ module.exports = (sequelize) => {
             primaryKey: true
         },
         Id_car: {
-            type: DataTypes.STRING,
-            unique: true
+            type: DataTypes.STRING
         },
         Name: {
             type: DataTypes.STRING
@@ -23,6 +22,10 @@ module.exports = (sequelize) => {
             type: DataTypes.DATE
         },
         Saved: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        },
+        Uploaded: {
             type: DataTypes.BOOLEAN,
             defaultValue: false
         }

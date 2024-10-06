@@ -6,8 +6,7 @@ const Op = db.Sequelize.Op
 exports.create = (req, res) => {
     const imgCar = {
         Id_img_car: req.body.Id_img_car,
-        Id_img: req.body.Id_img,
-        Images: req.body.Images
+        Image: req.body.Image
     }
     imgCars.create(imgCar).then((data) => {
         res.send(data)
@@ -53,8 +52,7 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
     imgCars.destroy({
         where: {
-            Id_img_car: req.body.Id_img_car,
-            Id_img: req.body.Id_img
+            Id_img_car: req.body.Id_img_car
         }
     })
     .then((data) => {  

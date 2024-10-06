@@ -1,42 +1,62 @@
 <ion-card class="container-card-bid-car">
   <div class="img-container-card-bid-car">
-    <img src="/assets/imgs/undefined_car.jpg" alt="Img 0">
+    <ng-container *ngIf="trash">
+      <div (click)="deleteBid()" class="img_trash">
+        <img src="/assets/trash.svg" alt="Img trash" />
+      </div>
+    </ng-container>
+    <img
+      class="img_car_background"
+      src="/assets/imgs/undefined_car.jpg"
+      alt="Img 0"
+    />
   </div>
   <ion-card-content class="content-card-bid-car">
-    <h4 class="title-card-bid">
-      {{Data.car.Make+' '+Data.car.Model+' '+Data.car.Engine+' '+Data.car.Year+' '+Data.car.Color}}
-    </h4>
+    <div>
+      <h4 class="title-card-bid">
+        {{
+          Data.car.Make +
+            " " +
+            Data.car.Model +
+            " " +
+            Data.car.Engine +
+            " " +
+            Data.car.Year +
+            " " +
+            Data.car.Color
+        }}
+      </h4>
+    </div>
     <h5>
-      <span class="subtitle-card-bid">
-        Kilometres:
-      </span>
-      {{Data.car.kilometres}}
+      <span class="subtitle-card-bid"> Kilometres: </span>
+      {{ Data.car.kilometres }}
     </h5>
+
     <h5>
-      <span class="subtitle-card-bid">
-        Damage:
-      </span>
-      {{Data.car.Damage}}
+      <span class="subtitle-card-bid"> Damage: </span>
+      {{ Data.car.Damage }}
     </h5>
+
     <h5>
-      <span class="subtitle-card-bid">
-        Location:
-      </span>
-      {{Data.bid.Location}}
+      <span class="subtitle-card-bid"> Location: </span>
+      {{ Data.bid.Location }}
     </h5>
+
     <h5>
-      <span class="subtitle-card-bid">
-        Bid date:
-      </span>
-       {{Data.bid.Date_bid}}
+      <span class="subtitle-card-bid"> Bid date: </span>
+      {{ Data.bid.Date_bid }}
     </h5>
+
     <div class="bid-price-container">
       <h4>
-        Precio: <span>{{Data.bid.Price+'$'}}</span>
+        Precio: <span>{{ Data.bid.Price + "$" }}</span>
       </h4>
-      <ion-button class="btn-card-bid-car">
-        Pujar
-      </ion-button>
+      <div>
+        <ng-container *ngIf="showBtn">
+          <ion-button class="btn-card-bid-car"> Pujar </ion-button>
+        </ng-container>
+
+      </div>
     </div>
   </ion-card-content>
 </ion-card>

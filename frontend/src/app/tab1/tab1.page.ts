@@ -9,52 +9,72 @@ export class Tab1Page {
 
   types_cars: any = [
     {
-      titleCard: "Hatchback",
-      count: 1554,
-      img: "/assets/user.svg"
+      titleCard: "minivan",
+      count: 246,
+      img: "/assets/imgs/vehicle_types/minivan.webp"
     },
     {
-      titleCard: "Pickup",
-      count: 1343,
-      img: "/assets/user.svg"
+      titleCard: "pickup",
+      count: 824,
+      img: "/assets/imgs/vehicle_types/pickup.webp"
     },
     {
-      titleCard: "Sedan",
-      count: 252842,
-      img: "/assets/user.svg"
+      titleCard: "roadster",
+      count: 245,
+      img: "/assets/imgs/vehicle_types/roadster.webp"
     },
     {
-      titleCard: "Fastback",
-      count: 9466,
-      img: "/assets/user.svg"
-    }
+      titleCard: "sedan",
+      count: 722,
+      img: "/assets/imgs/vehicle_types/sedan.webp"
+    },
+    {
+      titleCard: "SUV",
+      count: 2545,
+      img: "/assets/imgs/vehicle_types/SUV.webp"
+    },
   ]
 
   makes_cards: any = [
     {
-      titleCard: "Chevrolet",
-      count: 11982,
-      img: "/assets/user.svg"
+      titleCard: "CHEVROLET",
+      count: 42564,
+      img: "/assets/imgs/makes/chevrolet.svg"
     },
     {
-      titleCard: "Ford",
-      count: 75323,
-      img: "/assets/user.svg"
+      titleCard: "AUDI",
+      count: 8654,
+      img: "/assets/imgs/makes/audi.svg"
     },
     {
-      titleCard: "Peugeot",
-      count: 85324,
-      img: "/assets/user.svg"
+      titleCard: "BMW",
+      count: 432,
+      img: "/assets/imgs/makes/bmw.svg"
     },
     {
-      titleCard: "Civic",
-      count: 86464,
-      img: "/assets/user.svg"
+      titleCard: "FORD",
+      count: 795,
+      img: "/assets/imgs/makes/ford.svg"
     },
     {
-      titleCard: "Kia",
-      count: 132455,
-      img: "/assets/user.svg"
+      titleCard: "HONDA",
+      count: 1646,
+      img: "/assets/imgs/makes/honda.svg"
+    },
+    {
+      titleCard: "MERCEDES",
+      count: 2445,
+      img: "/assets/imgs/makes/mercedes.svg"
+    },
+    {
+      titleCard: "NISSAN",
+      count: 657,
+      img: "/assets/imgs/makes/nissan.svg"
+    },
+    {
+      titleCard: "TOYOTA",
+      count: 154,
+      img: "/assets/imgs/makes/toyota.svg"
     },
   ]
 

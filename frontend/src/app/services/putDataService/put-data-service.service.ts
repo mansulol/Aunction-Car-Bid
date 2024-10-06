@@ -28,8 +28,6 @@ export class PutDataServiceService {
       id_bid: "S"+idAll,
     }
 
-    console.log("Ids", ids)
-
     try {
       await this.postCars(formData, ids, headers)
       return true

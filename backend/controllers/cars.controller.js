@@ -5,20 +5,20 @@ const imgCars_Cars = db.imgs_cars_model
 // Create a new cars
 exports.create = (req, res) => {
     const car = {
-        Id_car: "C1234",
+        Id_car: req.body.Id_car,
         Vehicle_type: req.body.Vehicle_type,
         Make: req.body.Make,
         Model: req.body.Model,
         Year: parseInt(req.body.Year),
         Color: req.body.Color,
         Engine: req.body.Engine,
-        Transmition: req.body.Transmition,
+        Transmission: req.body.Transmission,
         Fuel: req.body.Fuel,
         Drive: req.body.Drive,
         kilometres: parseInt(req.body.kilometres),
         PVP: parseFloat(req.body.PVP),
         Damage: req.body.Damage,
-        Id_car_imgs: "IMG1234"
+        Id_car_img: req.body.Id_car_img
     }
 
     cars.create(car).then((data) => {
@@ -97,17 +97,18 @@ exports.delete = (req, res) => {
 }
 
 exports.deleteWithImage = (req, res) => {
+    
     imgCars_Cars.destroy({
         where: {
-            Id_img_car: req.body.Id_img_car
+            Id_img_car: req.params.idImg
         }
     })
+    
     cars.destroy({
         where: {
-            Id_car: req.body.Id_car
+            Id_car: req.params.idCar
         }
-    })
-    .then((data) => {  
+    }).then((data) => {  
         res.json({ message: 'Car and its images deleted from db' });
     })
 }

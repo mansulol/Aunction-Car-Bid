@@ -6,25 +6,43 @@ import { GetDataServiceService } from '../services/getDataService/get-data-servi
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
-export class Tab2Page implements OnInit{
+export class Tab2Page implements OnInit {
 
-  bids: any = []
-  cars: any = []
-  images: any = []
+  bids: any = [];
+  cars: any = [];
+  images: any = [];
 
-  combinedData: any = []
+  combinedData: any = [];
 
-  ids_bids: any = []
-  ids_cars: any = []
-  ids_imgs_cars: any = []
+  ids_bids: any = [];
+  ids_cars: any = [];
+  ids_imgs_cars: any = [];
 
-  constructor( private getDataService: GetDataServiceService ) {}
+  constructor(private getDataService: GetDataServiceService) { }
 
-  ngOnInit(){
-    this.getBidsData()
+  ngOnInit() {
+    try {
+      this.getData().then(() => {
+        this.combineData();
+      });
+    } catch (error) {
+      console.log("Error in get data: ", error);
+    }
   }
 
-  combineData(){
+  async getData(): Promise<boolean> {
+    try {
+      await this.getBidsData();
+      await this.getCarsData();
+      await this.getImagesData();
+      return true;
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      return false;
+    }
+  }
+
+  combineData() {
     for (let i = 0; i < this.bids.length; i++) {
       this.combinedData.push({
         bid: this.bids[i],
@@ -32,61 +50,81 @@ export class Tab2Page implements OnInit{
         image: this.images[i],
       });
     }
+    console.log("Combined data:", this.combinedData);
   }
 
-  getBidsData(){
-    this.getDataService.getBidsHttp().subscribe((data => {
-      if( data === null ){
-        console.log("Db not sync")
-      }else{
-        this.bids = data
+  getBidsData() {
+    return new Promise<void>((resolve, reject) => {
+      this.getDataService.getBidsHttp().subscribe({
+        next: (data) => {
+          if (data === null) {
+            console.log("Db not sync");
+            reject("No data for bids");
+          } else {
+            this.bids = data;
+            console.log("Bids data arrived", this.bids);
 
-        // let formatedDate = this.bids.Date_bid
-        // this.bids.Date_bid = this.bids.Date_bid.substring(0, formatedDate.indexOf('T'))
-        console.log("Bids data arrived", this.bids)
-
-        for(const bids of this.bids){
-          this.ids_bids.push(bids.Id_bid)
+            for (const bid of this.bids) {
+              this.ids_bids.push(bid.Id_bid);
+            }
+            resolve();
+          }
+        },
+        error: (err) => {
+          console.error("Error fetching bids data:", err);
+          reject(err);
         }
-      }
-
-    }))
-
-    this.getCarsData()
+      });
+    });
   }
 
-  getCarsData(){
-    this.getDataService.getCarsHttp().subscribe((data => {
-      if( data === null ){
-        console.log("Db not sync")
-      }else{
-        this.cars = data
-        console.log("Cars data arrived", this.cars)
+  getCarsData() {
+    return new Promise<void>((resolve, reject) => {
+      this.getDataService.getCarsHttp().subscribe({
+        next: (data) => {
+          if (data === null) {
+            console.log("Db not sync");
+            reject("No data for cars");
+          } else {
+            this.cars = data;
+            console.log("Cars data arrived", this.cars);
 
-        for(const car of this.cars){
-          this.ids_bids.push(car.Id_car)
+            for (const car of this.cars) {
+              this.ids_cars.push(car.Id_car);
+            }
+            resolve();
+          }
+        },
+        error: (err) => {
+          console.error("Error fetching cars data:", err);
+          reject(err);
         }
-      }
-    }))
-
-    this.getImagesData()
+      });
+    });
   }
 
-  getImagesData(){
-    this.getDataService.getImagesHttp().subscribe((data => {
-      if( data === null ){
-        console.log("Db not sync")
-      }else{
-        this.images = data
-        console.log("Images data arrived", this.images)
+  getImagesData() {
+    return new Promise<void>((resolve, reject) => {
+      this.getDataService.getImagesHttp().subscribe({
+        next: (data) => {
+          if (data === null) {
+            console.log("Db not sync");
+            reject("No data for images");
+          } else {
+            this.images = data;
+            console.log("Images data arrived", this.images);
 
-        for(const img of this.images){
-          this.ids_bids.push(img.Id_imgs_cars)
+            for (const img of this.images) {
+              this.ids_imgs_cars.push(img.Id_imgs_cars);
+            }
+            resolve();
+          }
+        },
+        error: (err) => {
+          console.error("Error fetching images data:", err);
+          reject(err);
         }
-
-        this.combineData()
-      }
-    }))
+      });
+    });
   }
-
 }

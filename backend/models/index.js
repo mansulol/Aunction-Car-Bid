@@ -28,34 +28,34 @@ db.imgs_cars_model = require("./imgs_cars.model")(sequelize)
 db.cars_model = require("./cars.model")(sequelize)
 db.bids_model = require("./bids.model")(sequelize)
 
-// Relation between my cars and my images
-db.cars_model.hasOne(db.imgs_cars_model, {
-    foreignKey: {
-        name: 'f_idCars_Imgs',
-        sourceKey: 'Id_img_car'
-    },
-    onDelete: 'CASCADE'
-});
-db.imgs_cars_model.belongsTo(db.cars_model, {
-    foreignKey: {
-        name: 'f_idImgs_cars',
-        targetKey: 'Id_img_car'
-    }
-})
+// // Relation between my cars and my images
+// db.cars_model.hasOne(db.imgs_cars_model, {
+//     foreignKey: {
+//         name: 'f_idCars_Imgs',
+//         sourceKey: 'Id_img_car'
+//     },
+//     onDelete: 'CASCADE'
+// });
+// db.imgs_cars_model.belongsTo(db.cars_model, {
+//     foreignKey: {
+//         name: 'f_idImgs_cars',
+//         targetKey: 'Id_img_car'
+//     }
+// })
 
-// Relation between my bids and my cars
-db.bids_model.hasOne(db.cars_model, { 
-    foreignKey: {
-        name: 'f_idBids_Cars'
-    },
-    sourceKey: 'Id_car',
-    onDelete: 'CASCADE'
-})
-db.cars_model.belongsTo(db.bids_model, {
-    foreignKey: {
-        name: 'f_idCars_bids'
-    },
-    targetKey: 'Id_car'
-})
+// // Relation between my bids and my cars
+// db.bids_model.hasOne(db.cars_model, { 
+//     foreignKey: {
+//         name: 'f_idBids_Cars'
+//     },
+//     sourceKey: 'Id_car',
+//     onDelete: 'CASCADE'
+// })
+// db.cars_model.belongsTo(db.bids_model, {
+//     foreignKey: {
+//         name: 'f_idCars_bids'
+//     },
+//     targetKey: 'Id_car'
+// })
 
 module.exports = db

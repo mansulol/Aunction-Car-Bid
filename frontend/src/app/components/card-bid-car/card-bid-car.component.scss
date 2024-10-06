@@ -1,6 +1,7 @@
 @import '../../../global.scss';
 
 .container-card-bid-car{
+  position: relative;
   max-width: 390px;
   display: flex;
   padding: 10px;
@@ -14,12 +15,31 @@
     border-radius: 15px;
     background-color: gray;
 
-    img{
+    .img_car_background{
       object-fit: cover;
       width: 100%;
       height: 100%;
       border-radius: 15px;
       border: 1px solid $dark-gray;
+    }
+
+    .img_trash {
+      position: absolute;
+      margin: 6px;
+      display: flex;
+      justify-content: end;
+      z-index: 10;
+      cursor: pointer;
+
+      img {
+        width: 45px;
+        height: 45px;
+      }
+
+      img:hover {
+        opacity: 0.8;
+        transform: scale(1.5);
+      }
     }
 
   }
@@ -52,14 +72,15 @@
           color: $primary-color;
         }
       }
-      .btn-card-bid-car{
-        min-width: 40%;
-        border-radius: 50%;
-        color: white;
-        --font-size: 16px;
-        font-weight: bold;
-      }
     }
 
   }
+}
+
+.btn-card-bid-car{
+  min-width: 40%;
+  border-radius: 50%;
+  color: white;
+  --font-size: 16px;
+  font-weight: bold;
 }
